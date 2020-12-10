@@ -3,7 +3,7 @@ const startBtn = document.createElement("button");
 startBtn.innerHTML = "Start listening";
 const result = document.createElement("div");
 const processing = document.createElement("p");
-document.write("<body><h1>My Siri</h1><p>Give it a try with 'hello', 'how are you', 'what's your name', 'what time is it', 'stop', ... </p></body>");
+document.write("<body><h1>MONDAY</h1></body>");
 document.body.append(startBtn);
 document.body.append(result);
 document.body.append(processing);
@@ -13,7 +13,7 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 let toggleBtn = null;
 if (typeof SpeechRecognition === "undefined") {
 	startBtn.remove();
-	result.innerHTML = "<b>Browser does not support Speech API. Please download latest chrome.<b>";
+	result.innerHTML = "<b>Browser does not support Speech API. Please download the latest version of chrome.<b>";
 } else {
 	const recognition = new SpeechRecognition();
 	recognition.continuous = true;
