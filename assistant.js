@@ -1,4 +1,3 @@
-// UI comp
 const startBtn = document.createElement("button");
 startBtn.innerHTML = "Start listening";
 const result = document.createElement("div");
@@ -27,14 +26,14 @@ if (typeof SpeechRecognition === "undefined") {
 
 			const response = process(text);
 			const p = document.createElement("p");
-			p.innerHTML = `You said: ${text} </br>Siri said: ${response}`;
+			p.innerHTML = `You said: ${text} </br>Monday said: ${response}`;
 			processing.innerHTML = "";
 			result.appendChild(p);
 
 			// text to speech
 			speechSynthesis.speak(new SpeechSynthesisUtterance(response));
 		} else {
-			processing.innerHTML = `listening: ${text}`;
+			processing.innerHTML = `Listening: ${text}`;
 		}
 	}
 	let listening = false;
@@ -59,7 +58,7 @@ function process(rawText) {
 	let response = null;
 	switch(text) {
 		case "hello":
-			response = "hi, how are you doing?"; break;
+			response = "Hi, how are you doing?"; break;
 		case "what'syourname":
 			response = "My name's Siri.";  break;
 		case "howareyou":
@@ -67,7 +66,7 @@ function process(rawText) {
 		case "whattimeisit":
 			response = new Date().toLocaleTimeString(); break;
 		case "stop":
-			response = "Bye!!";
+			response = "Bye!";
 			toggleBtn();
 	}
 	if (!response) {
