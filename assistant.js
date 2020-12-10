@@ -22,7 +22,7 @@ if (typeof SpeechRecognition === "undefined") {
 		const res = event.results[last];
 		const text = res[0].transcript;
 		if (res.isFinal) {
-			processing.innerHTML = "processing ....";
+			processing.innerHTML = "Processing ....";
 
 			const response = process(text);
 			const p = document.createElement("p");
@@ -30,8 +30,12 @@ if (typeof SpeechRecognition === "undefined") {
 			processing.innerHTML = "";
 			result.appendChild(p);
 
-			// text to speech
-			speechSynthesis.speak(new SpeechSynthesisUtterance(response));
+            // text to speech
+            voices = window.speechSynthesis.getVoices()
+            var utterance = new speechSynthesis.speak(new SpeechSynthesisUtterance(response));
+            utterance.voice = voices[4];
+            utterance.lang = voices[4].lang;
+            window.speechSynthesis.speak(utterance);
 		} else {
 			processing.innerHTML = `Listening: ${text}`;
 		}
