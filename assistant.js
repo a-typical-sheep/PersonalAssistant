@@ -30,12 +30,8 @@ if (typeof SpeechRecognition === "undefined") {
 			processing.innerHTML = "";
 			result.appendChild(p);
 
-            // text to speech
-            voices = window.speechSynthesis.getVoices()
-            var utterance = new speechSynthesis.speak(new SpeechSynthesisUtterance(response));
-            utterance.voice = voices[4];
-            utterance.lang = voices[4].lang;
-            window.speechSynthesis.speak(utterance);
+			// text to speech
+			speechSynthesis.speak(new SpeechSynthesisUtterance(response));
 		} else {
 			processing.innerHTML = `Listening: ${text}`;
 		}
